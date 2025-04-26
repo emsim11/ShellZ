@@ -1,0 +1,5 @@
+# Plugins (Git-Cloned Dynamically)
+Plugins/*
+
+# macOS
+.DS_STORE
