@@ -1,5 +1,14 @@
-# Plugins (Git-Cloned Dynamically)
-Plugins/*
+# Custom Files
+Backup/
+Custom/
 
-# macOS
+# Editor Configs
+.Idea
+.VSCode
+
+# OS-Specific Files
 .DS_STORE
+
+# Temporary Directories
+Cache/
+Log/

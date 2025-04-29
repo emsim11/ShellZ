@@ -1,0 +1,7 @@
+# ~/$ZSH_DIR/ZSH/ZshRC.symlink
+# ─────────────────────────────────────────────────────────────────────────────
+# Interactive Shell Configuration
+#
+# Sourced when starting an interactive shell (but not necessarily login).
+# Load prompts, plugins, aliases, completions, functions, interactive settings.
+# ─────────────────────────────────────────────────────────────────────────────

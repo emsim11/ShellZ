@@ -1,0 +1,8 @@
+# ~/$ZSH_DIR/ZSH/ZLogout.symlink
+# ─────────────────────────────────────────────────────────────────────────────
+# Logout Session Cleanup
+#
+# Executed on user shell logout (for login shells).
+# Use this for cleanup tasks, session data logging, or restoring state.
+# Only sourced if the shell is a login shell and exits cleanly.
+# ─────────────────────────────────────────────────────────────────────────────

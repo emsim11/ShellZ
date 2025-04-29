@@ -1,0 +1,8 @@
+# ~/$ZSH_DIR/ZSH/ZshEnv.symlink
+# ─────────────────────────────────────────────────────────────────────────────
+# Shell Environment Configuration
+#
+# Sourced for every Zsh invocation, login or not (e.g., scripts, terminals).
+# Keep minimal and safe - no output, no conditionals, no interactive logic.
+# Define essential environment variables that should be loaded for all shells.
+# ─────────────────────────────────────────────────────────────────────────────

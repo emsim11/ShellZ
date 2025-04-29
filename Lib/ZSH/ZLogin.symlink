@@ -1,0 +1,8 @@
+# ~/$ZSH_DIR/ZSH/ZLogin.symlink
+# ─────────────────────────────────────────────────────────────────────────────
+# Login Session Configuration
+#
+# Executed only on full login shells (e.g., TTY or SSH).
+# Use this for environment variables or commands that should be run once per login.
+# Setup environment variables and session, display welcome messages, etc.
+# ─────────────────────────────────────────────────────────────────────────────

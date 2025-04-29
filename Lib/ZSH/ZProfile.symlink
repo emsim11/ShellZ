@@ -1,0 +1,8 @@
+# ~/$ZSH_DIR/ZSH/ZProfile.symlink
+# ─────────────────────────────────────────────────────────────────────────────
+# System Profile Configuration
+#
+# Executed on login shells before ZLogin.
+# Set PATH and other environment variables, as well as system-wide settings.
+# Define user environment that needs to be inherited by GUI apps (macOS).
+# ─────────────────────────────────────────────────────────────────────────────
