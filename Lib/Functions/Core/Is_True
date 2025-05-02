@@ -1,0 +1,31 @@
+# ~/$ZSH_DIR/Lib/Functions/Core/Is_True
+# ─────────────────────────────────────────────────────────────────────────────
+# Check A Boolean-Link Value For True (Case Insensitive)
+#
+# Determine if the input string represents a 'true' value, ignoring case.
+#
+# Return 0 (true) for: "1", "E", "Enable", "Enabled", "On", "T", "True", "Y", "Yes".
+# Return 1 (false) for all other values, including empty input.
+# ─────────────────────────────────────────────────────────────────────────────
+
+Is_True() {
+  # ── ARGUMENTS ──────────────────────────────────────────────────────────────
+  local Input="${1:u}"         # Uppercase Input For Case-Insensitive Matching
+
+  # ── VARIABLES ──────────────────────────────────────────────────────────────
+  local -a True_Values=(1 E ENABLE ENABLED ON T TRUE Y YES)
+
+  # ── VALIDATE INPUT ─────────────────────────────────────────────────────────
+  [[ -z $Input ]] && {
+    print -P "%B%F{red}!%f%b %BError:%b Input Argument Must Be Provided To %BIs_True()%b!\n" >&2
+    return 1
+  }
+
+  # ── CHECK IF INPUT MATCHES ANY TRUE VALUE ──────────────────────────────────
+  for Value in "${True_Values[@]}"; do
+    if [[ "$Input" == "$Value" ]]; then return 0; fi
+  done
+
+  # ── RETURN FALSE FOR ALL OTHER VALUES ──────────────────────────────────────
+  return 1
+}

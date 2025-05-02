@@ -35,7 +35,7 @@ ShellZ bootstrap
 - ☑️ Dry-run and confirmation flags for safe operation
 - ☑️ Timestamped backups before modifying any file
 - ☑️ Global logger with color-coded output and severity logging
-- ☑️ Persistent log output (`Log/`) with timestamped reports
+- ☑️ Persistent log output (`Logs/`) with timestamped reports
 
 ---
 
@@ -63,7 +63,7 @@ A sandbox for users to personalize their Zsh environment beyond what the framewo
 
 **Heart of the framework**. The core code, essential modules, and helper scripts for the Zsh framework itself. Houses the fundamental scripts and functions that define the framework's architecture, manage its components, and provide its core functionalities.
 
-### `Log/`
+### `Logs/`
 
 Structured runtime logs written and output for framework operations (events), error messages, backup reports, install activity, and debugging information. The level of detail in the logs can be configured by the user.
 
