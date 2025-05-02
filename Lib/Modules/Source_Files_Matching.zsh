@@ -23,7 +23,7 @@ function Source_Files_Matching() {
   fi
 
   # ── LOG MESSAGE ────────────────────────────────────────────────────────────
-  print -P "%B%F{cyan}→%f%b Sourcing Files Matching \"%B${Glob_Pattern}%b\" In %U${Path}%u…"
+  print -P "\n%B%F{cyan}→%f%b Sourcing Files Matching \"%B${Glob_Pattern}%b\" In %U${Path}%u:"
 
   # ── COLLECT FILES ──────────────────────────────────────────────────────────
   while IFS= read -r -d '' File; do

@@ -7,19 +7,6 @@
 
 # ── CORE CONFIGURATION ───────────────────────────────────────────────────────
 : "${ZSH_DIR:=$HOME/ShellZ}"
-: "${ZSH_FUNCTIONS_DIR:=$ZSH_DIR/Lib/Functions}"
-: "${ZSH_PLUGINS_DIR:=$ZSH_DIR/Lib/Plugins}"
-: "${ZSH_SHARED_DIR:=$ZSH_DIR/Lib/Shared}"
-: "${ZLOGIN_FILE:=$HOME/.zlogin}"
-: "${ZLOGOUT_FILE:=$HOME/.zlogout}"
-: "${ZPROFILE_FILE:=$HOME/.zprofile}"
-: "${ZSHENV_FILE:=$HOME/.zshenv}"
-: "${ZSHRC_FILE:=$HOME/.zshrc}"
-
-typeset -a FPATH_DIRS=(
-  $ZSH_FUNCTIONS_DIR
-  $ZSH_PLUGINS_DIR
-)
 
 typeset -a SITE_FPATH=(
   /opt/homebrew/share/zsh/site-functions
@@ -29,21 +16,16 @@ typeset -a SITE_FPATH=(
 )
 
 # ── VALIDATIONS ──────────────────────────────────────────────────────────────
-for D in $ZSH; do
+for D in $ZSH_DIR; do
   [[ -d $D ]] || {
     print -P "%B%F{red}!%f%b %BError:%b Directory Not Found: %U$D%u\n" >&2
     return 1
   }
 done
 
-for D in $FPATH_DIRS; do
-  [[ -d $D ]] || {
-    print -P "%B%F{yellow}⚠%f%b %BWarning:%b Missing Directory: %U$D%u" >&2
-  }
-done
-
 # ── SOURCE GLOBAL VARIABLES ──────────────────────────────────────────────────
 source "$ZSH_DIR/Lib/Modules/Source_Files_Matching.zsh"
+Source_Files_Matching "$ZSH_MODULES_DIR" "*.zsh"
 Source_Files_Matching "$ZSH_SHARED_DIR" "*_Variables.zsh"
 
 # ── SCAN $ZSH_FUNCTIONS_DIR ──────────────────────────────────────────────────
@@ -91,6 +73,15 @@ print -P "  %B%F{cyan}↪%f%b %BPlugin Files:%b"
 for D in "${PLUGIN_FILES[@]}"; do print -P "    %B%F{cyan}•%f%b $D"; done
 
 # ── $FPATH ───────────────────────────────────────────────────────────────────
+typeset -a TARGET_PATHS=(
+  Function   $ZSH_FUNCTIONS_DIR
+  Plugin     $ZSH_PLUGINS_DIR
+)
+
+for Name Path in ${(kv)TARGET_PATHS}; do
+  [[ -d $Path ]] || { print -P "\n%B%F{yellow}⚠%f%b %BWarning:%b Missing Directory: %U$Path%u %B(SKIPPED)%b" >&2; }
+done
+
 print -P "\n%B%F{cyan}→%f%b Setting Up \$fpath…"
 
 typeset -aU fpath=()
